@@ -6,7 +6,7 @@ const ps3 = (string = '', func) => {
 console.log(
   ps3('supercalifragilisticexpialidocious', 
   (input) => {
-    return input.replace(/c/g, "&c").split('&');
+    return input.split(/(?=c)/g);
   })
 );
 
