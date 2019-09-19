@@ -25,7 +25,7 @@ const evaluate = (input = '') => {
 const expression1 = '8%3';
 const expression2 = '8+3';
 const expression3 = '8-3';
-const expression4 = '8*3';
+const expression4 = '7*5';
 const expression5 = '8/3';
 
 let operator = evaluate(expression1);

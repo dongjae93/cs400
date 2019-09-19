@@ -6,16 +6,7 @@ const ps3 = (string = '', func) => {
 console.log(
   ps3('supercalifragilisticexpialidocious', 
   (input) => {
-    let result = [];
-    let index = 0;
-    for (let i = 0; i < input.length; i++) {
-      const element = input.charAt(i);
-      if(element === 'c') {
-        result.push(input.substring(index, i));
-        index = i;
-      }
-    }
-    return result;
+    return input.replace(/c/g, "&c").split('&');
   })
 );
 
@@ -27,9 +18,9 @@ console.log(
     let numberReplaced = 0;
     let length = input.length;
     let charArr = input.split('');
-    charArr.forEach(element => {
+    charArr.forEach((element, i) => {
       if(element === 'a') {
-        element = element.toUpperCase;
+        charArr[i] = element.toUpperCase();
         numberReplaced = numberReplaced + 1;
       }
     });
