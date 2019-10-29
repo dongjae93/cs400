@@ -1,8 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const axios = require('axios');
 
 router.get('/', (req, res, next) => {
-  res.render('ps3GET', { message: 'Get Wrecked Trump' });
+  axios.get('http://www.jservice.io/api/random')
+  .then(response => {
+    let { data } = response;
+    let { category, question, answer, value } = data[0];
+    let { title } = category;
+    res.render('ps4GET', { title, question, answer, value })
+  })
 })
 
 router.post('/', (req, res, next) => {
