@@ -1,0 +1,21 @@
+<form [formGroup]="seedInputFormGroup" (ngSubmit)="onSubmit()">
+
+  <label>Please Enter seed number in order to generate random clue (min 1 length, integer only):
+    <input type="text" formControlName="seed" >
+  </label>
+  <!--
+  <button type="submit" [disabled]="!contactFormGroup.valid">Submit</button>
+-->
+  <button type="submit" >Submit</button>
+
+  <div *ngIf="seedInputFormGroup.get('seed').errors">
+    Seed Number has error in its input.
+  </div>
+</form>
+
+<ul>
+  <li *ngFor="let c of clues">
+    <app-display [clue] = "c"></app-display>
+  </li>
+</ul>
+
